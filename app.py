@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib
 
 # ✅ ฟอนต์ภาษาไทย
-matplotlib.rcParams['font.family'] = 'sans-serif'
+matplotlib.rcParams['font.family'] = 'DejaVu Sans'
 
 # 📥 โหลดข้อมูลจาก Google Drive (Public CSV link หรือแบบ direct .xlsx ผ่าน gdown)
 df = pd.read_excel("driploss-v2.xlsx")
