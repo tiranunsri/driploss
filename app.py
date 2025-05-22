@@ -46,11 +46,11 @@ if df_selected.empty:
 
 # ➕ รวมโรงงาน
 df_combined = df_selected.copy()
-df_combined['Factory'] = 'รวมทุกโรงงาน'
+df_combined['Factory'] = 'All Factory'
 df_all = pd.concat([df_selected, df_combined])
 
 # 📦 Box Plot
-ordered_factories = sorted(df_selected['Factory'].unique()) + ['รวมทุกโรงงาน']
+ordered_factories = sorted(df_selected['Factory'].unique()) + ['All Factory']
 df_all['Factory'] = pd.Categorical(df_all['Factory'], categories=ordered_factories, ordered=True)
 df_all.sort_values('Factory', inplace=True)
 
@@ -61,7 +61,7 @@ df_all.boxplot(column='driploss', by='Factory', ax=ax, patch_artist=True, grid=F
 # 🎨 สี box
 for i, patch in enumerate(ax.artists):
     factory_name = ordered_factories[i]
-    color = '#fce570' if factory_name == 'รวมทุกโรงงาน' else '#e0e0e0'
+    color = '#fce570' if factory_name == 'All Factory' else '#e0e0e0'
     patch.set_facecolor(color)
 
 # 🎯 แกนและเส้นประ
@@ -104,7 +104,7 @@ for x, label in zip(tick_positions, tick_labels):
 st.pyplot(fig)
 
 # 📋 สรุปตาราง
-st.subheader("📋 สถิติของ Drip Loss")
+st.subheader("📋 Drip Loss Data Summary")
 summary = df_all.groupby('Factory').agg(
     N=('driploss', lambda x: x.dropna().shape[0]),
     Mean_DripLoss=('driploss', 'mean'),
