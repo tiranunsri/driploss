@@ -8,8 +8,7 @@ import matplotlib
 matplotlib.rcParams['font.family'] = 'Tahoma'
 
 # 📥 โหลดข้อมูลจาก Google Drive (Public CSV link หรือแบบ direct .xlsx ผ่าน gdown)
-import gdown
-gdown.download('https://docs.google.com/spreadsheets/d/1jRYXViC1nEIM8gMy0RHy5cufIHRfdnFR/edit?usp=sharing&ouid=110281668206260656081&rtpof=true&sd=true', quiet=False)
+df = pd.read_excel("driploss-v2.xlsx")
 
 # 📄 โหลดข้อมูล
 df = pd.read_excel("driploss-v2.xlsx")
